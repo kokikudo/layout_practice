@@ -1,50 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     tools:context=".MainActivity">
+    <!-- android:orientationでWidgetsの並ぶ方向を指定 -->
+    <!--
+     レイアウト内のWidgetsの配置位置を統一する場合は
+     LinearLayoutのandroid:gravityで指定する
+     -->
 
     <!--
-     複数のWidgetsを選択した状態で左クリック→Chains→Create〜Chainで横または縦方向に
-     鎖で繋ぐことができるこれをChainsという。
-     左クリック→Chains→Create〜Chain StyleでStyleを変更できる。
-     FlutterのRow、ColumnのMainAxisAlignmentと同じ。
+     android:backgroundTintでボタンの背景色を変更
+     android:layout_gravityで配置位置を指定
+     android:layout_weightで対比でWidgetsが拡大する（FlutterでいうExpandedのflex）
      -->
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_weight="3"
         android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center_vertical"
+        android:backgroundTint="@color/purple_700"/>
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_weight="2"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="start"
+        android:backgroundTint="@color/teal_200"
+        />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_gravity="bottom"
         android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:backgroundTint="@color/purple_200"
+        />
+
+</LinearLayout>
